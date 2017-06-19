@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AngularJS2 App</title>
+
+    <script src="../libs/es6-shim.min.js"></script>
+    <script src="../libs/system-polyfills.js"></script>
+    <script src="../libs/angular2-polyfills.js"></script>
+    <script src="../libs/system.js"></script>
+    <script src="../libs/typescript.js"></script>
+    <script src="../libs/Rx.js"></script>
+    <script src="../libs/angular2.dev.js"></script>
+
+    <script>
+      System.config({
+        transpiler: 'typescript',
+        typescriptOptions: { emitDecoratorMetadata: true },
+        packages: {'app': {defaultExtension: 'ts'}},
+        map: { 'app': '../src' }
+      });
+      System.import('app/index')
+            .then(null, console.error.bind(console));
+    </script>
+
+    <link rel="stylesheet" href="../../css/css/bootstrap.min.css">
+    <link href="../../css/css/style.css" rel="stylesheet" type="text/css" />
+
+  </head>
+  
+<body>
+   <app>loading...</app>
+</body>
+</html>
