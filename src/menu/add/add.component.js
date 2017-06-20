@@ -28,19 +28,19 @@ System.register(["angular2/core", '../../services/model.service', '../../service
             }],
         execute: function() {
             MenuAddComponent = (function () {
-                function MenuAddComponent(r, model, parse) {
+                function MenuAddComponent(r, ms, parse) {
                     this.r = r;
-                    this.model = model;
                     this.parse = parse;
                     this.addCount = '';
                     this.min = 1;
                     this.max = 5000;
+                    this.model = ms.getModel();
                 }
                 MenuAddComponent.prototype.addFirst = function (count) {
                     var c = this.parse.parseValue(count, this.min, this.max);
                     var newData = this.r.randomObjects(c);
-                    this.model.setData(newData.concat(this.model.getData()));
-                    console.log(this.model);
+                    this.model.data = newData.concat(this.model.data);
+                    console.log(this.model.data);
                 };
                 MenuAddComponent = __decorate([
                     core_1.Component({

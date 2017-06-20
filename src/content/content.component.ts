@@ -12,13 +12,14 @@ export class ContentComponent {
 	
 	model;
 
-	constructor(private r: RandomService,  m: ModelService) {
-		this.model = m;
-		this.model.setData(r.randomObjects(5));
+	constructor(private r: RandomService,  ms: ModelService) {
+		this.model = ms.getModel();
+		this.model.data = r.randomObjects(5);
 		console.log(this.model);
 	}
 
 	show() {
-		console.log(this.model);
+		console.log(this.model.data);
+		this.model.data.push(this.r.randomObjects(1)[0]);
 	}
 }

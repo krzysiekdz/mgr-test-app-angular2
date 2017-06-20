@@ -1,22 +1,18 @@
-System.register([], function(exports_1, context_1) {
+System.register(['./dataModelObj'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
+    var dataModelObj_1;
     var ModelService;
     return {
-        setters:[],
+        setters:[
+            function (dataModelObj_1_1) {
+                dataModelObj_1 = dataModelObj_1_1;
+            }],
         execute: function() {
             ModelService = (function () {
                 function ModelService() {
-                    this.model = {
-                        data: []
-                    };
+                    this.model = dataModelObj_1.MODEL;
                 }
-                ModelService.prototype.getData = function () {
-                    return this.model.data;
-                };
-                ModelService.prototype.setData = function (data) {
-                    this.model.data = data;
-                };
                 ModelService.prototype.getModel = function () {
                     return this.model;
                 };

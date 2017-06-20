@@ -1,21 +1,12 @@
+import {DataModel} from './dataModel';
+import {MODEL} from './dataModelObj';
+
 export class ModelService {
-	model = {
-		data: []
-	};
+	model:DataModel = MODEL;
 
-	getData() {
-		return this.model.data;
-	}
-
-	setData(data) {
-		this.model.data = data;
-	}
-
-	getModel() {
+	getModel():DataModel {
 		return this.model;
 	}
-
-
 }
 
 

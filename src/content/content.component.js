@@ -25,14 +25,15 @@ System.register(["angular2/core", '../services/random.service', '../services/mod
             }],
         execute: function() {
             ContentComponent = (function () {
-                function ContentComponent(r, m) {
+                function ContentComponent(r, ms) {
                     this.r = r;
-                    this.model = m;
-                    this.model.setData(r.randomObjects(5));
+                    this.model = ms.getModel();
+                    this.model.data = r.randomObjects(5);
                     console.log(this.model);
                 }
                 ContentComponent.prototype.show = function () {
-                    console.log(this.model);
+                    console.log(this.model.data);
+                    this.model.data.push(this.r.randomObjects(1)[0]);
                 };
                 ContentComponent = __decorate([
                     core_1.Component({

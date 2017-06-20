@@ -12,19 +12,21 @@ import {ParseValueService} from '../../services/parseValue.service';
 export class MenuAddComponent {
 
 	addCount:string = '';
+	model;
 	min:number = 1;
 	max:number = 5000;
 
 	constructor(private r: RandomService, 
-		private model: ModelService, 
+		ms: ModelService, 
 		private parse: ParseValueService) {
+		this.model = ms.getModel();
 	}
 
 	addFirst(count:string) {
 		var c:number = this.parse.parseValue(count, this.min, this.max);
 		var newData = this.r.randomObjects(c);
-		this.model.setData(newData.concat(this.model.getData()));
-		console.log(this.model);
+		this.model.data = newData.concat(this.model.data);
+		console.log(this.model.data);
 	}
 
 	// show(e) {
