@@ -1,0 +1,28 @@
+<div class="content" (click)="show()">
+    <table class="table" name="tableWrap">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Job</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+
+        <tbody name="table">
+        	<tr *ngFor="#item of model.getData()" >
+        		<td class="col-md-1">{{item.id}}</td>
+                <td class="col-md-2" >{{item.c1}}</td>
+                <td class="col-md-2" >{{item.c2}}</td>
+                <td class="col-md-2" >{{item.c3}}</td>
+                <td class="col-md-2" >{{item.c4}}</td>
+                <td>
+                    <button class="btn btn-default">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </td>
+        	</tr>
+        </tbody>
+    </table>
+</div>

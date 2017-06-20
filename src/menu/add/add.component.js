@@ -1,4 +1,4 @@
-System.register(["angular2/core"], function(exports_1, context_1) {
+System.register(["angular2/core", '../../services/model.service', '../../services/random.service', '../../services/parseValue.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,23 +10,45 @@ System.register(["angular2/core"], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, model_service_1, random_service_1, parseValue_service_1;
     var MenuAddComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (model_service_1_1) {
+                model_service_1 = model_service_1_1;
+            },
+            function (random_service_1_1) {
+                random_service_1 = random_service_1_1;
+            },
+            function (parseValue_service_1_1) {
+                parseValue_service_1 = parseValue_service_1_1;
             }],
         execute: function() {
             MenuAddComponent = (function () {
-                function MenuAddComponent() {
+                function MenuAddComponent(r, model, parse) {
+                    this.r = r;
+                    this.model = model;
+                    this.parse = parse;
+                    this.addCount = '';
+                    this.min = 1;
+                    this.max = 5000;
                 }
+                MenuAddComponent.prototype.addFirst = function (count) {
+                    var c = this.parse.parseValue(count, this.min, this.max);
+                    var newData = this.r.randomObjects(c);
+                    this.model.setData(newData.concat(this.model.getData()));
+                    console.log(this.model);
+                };
                 MenuAddComponent = __decorate([
                     core_1.Component({
                         selector: 'menu-add',
                         templateUrl: '../src/menu/add/add.template.html',
+                        providers: [model_service_1.ModelService, random_service_1.RandomService, parseValue_service_1.ParseValueService],
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [random_service_1.RandomService, model_service_1.ModelService, parseValue_service_1.ParseValueService])
                 ], MenuAddComponent);
                 return MenuAddComponent;
             }());

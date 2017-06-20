@@ -6,12 +6,14 @@ import {ContentComponent} from './content/content.component';
    selector: 'app',
    template: `
       <div class="app">
-         <app-menu></app-menu>
-         <app-content></app-content>
+         <app-menu ></app-menu>
+         <app-content ></app-content>
       </div>
    	`,
    directives: [MenuComponent, ContentComponent]
 })
 export class AppComponent {
-
+	// model = {
+	// 	data: []
+	// };
 }

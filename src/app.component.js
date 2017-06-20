@@ -30,7 +30,7 @@ System.register(["angular2/core", './menu/menu.component', './content/content.co
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'app',
-                        template: "\n      <div class=\"app\">\n         <app-menu></app-menu>\n         <app-content></app-content>\n      </div>\n   \t",
+                        template: "\n      <div class=\"app\">\n         <app-menu ></app-menu>\n         <app-content ></app-content>\n      </div>\n   \t",
                         directives: [menu_component_1.MenuComponent, content_component_1.ContentComponent]
                     }), 
                     __metadata('design:paramtypes', [])

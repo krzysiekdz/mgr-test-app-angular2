@@ -15,8 +15,9 @@ import {MenuAddComponent} from './add/add.component';
    	</div>
    	`,
    	directives: [HeaderComponent, InitComponent, MenuAddComponent],
+   	inputs: ['model:dataModel']
 })
 
 export class MenuComponent {
-
+	// model;
 }

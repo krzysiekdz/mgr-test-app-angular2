@@ -35,6 +35,7 @@ System.register(["angular2/core", "./header/header.component", "./init/init.comp
                         selector: 'app-menu',
                         template: "\n   \t<div class=\"menu\">\n   \t\t<div>\n\t\t\t<menu-header></menu-header>\n\t\t\t<menu-init></menu-init>\n\t\t\t<menu-add></menu-add>\n   \t\t</div>\n   \t</div>\n   \t",
                         directives: [header_component_1.HeaderComponent, init_component_1.InitComponent, add_component_1.MenuAddComponent],
+                        inputs: ['model:dataModel']
                     }), 
                     __metadata('design:paramtypes', [])
                 ], MenuComponent);

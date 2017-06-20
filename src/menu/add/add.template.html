@@ -1,11 +1,13 @@
  
  <div class="container-action">
-    <button class="btn btn-default btn-menu" name="addFirst">            add I</button>
+    <button class="btn btn-default btn-menu" name="addFirst" (click)="addFirst(addCount)">
+    	add I
+    </button>
     <button class="btn btn-default btn-menu" name="addMid">              add II</button>
     <button class="btn btn-default btn-menu" name="addLast">             add III</button>
     <div> 
         add:
-        <input type="text" class="form-control input100" name="input-add">
+        <input type="text" class="form-control input100" name="input-add" [(ngModel)]="addCount" >
         elements
     </div>
 </div>

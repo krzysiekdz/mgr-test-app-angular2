@@ -1,27 +1,24 @@
 import {Component} from "angular2/core";
+import {RandomService} from '../services/random.service';
+import {ModelService} from '../services/model.service';
 
 @Component({
    selector: 'app-content',
-   template: `
-   	<div class="content">
-        <table class="table" name="tableWrap">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Name</th>
-                    <th>Surname</th>
-                    <th>Job</th>
-                    <th>Salary</th>
-                </tr>
-            </thead>
-
-            <tbody name="table">
-            </tbody>
-        </table>
-    </div>
-   	`,
+   templateUrl: '../src/content/content.template.html',
+   providers: [RandomService, ModelService]
 })
 
 export class ContentComponent {
+	
+	model;
 
+	constructor(private r: RandomService,  m: ModelService) {
+		this.model = m;
+		this.model.setData(r.randomObjects(5));
+		console.log(this.model);
+	}
+
+	show() {
+		console.log(this.model);
+	}
 }
