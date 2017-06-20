@@ -40,7 +40,19 @@ System.register(["angular2/core", '../../services/model.service', '../../service
                     var c = this.parse.parseValue(count, this.min, this.max);
                     var newData = this.r.randomObjects(c);
                     this.model.data = newData.concat(this.model.data);
-                    console.log(this.model.data);
+                };
+                MenuAddComponent.prototype.addMid = function (count) {
+                    var c = this.parse.parseValue(count, this.min, this.max);
+                    var newData = this.r.randomObjects(c);
+                    var mid = Math.floor(this.model.data.length / 2);
+                    var args = [mid, 0]; //position mid, 0 removes - for splice function 
+                    args = args.concat(newData); //mid, 0 + newData -> args for splice
+                    Array.prototype.splice.apply(this.model.data, args);
+                };
+                MenuAddComponent.prototype.addLast = function (count) {
+                    var c = this.parse.parseValue(count, this.min, this.max);
+                    var newData = this.r.randomObjects(c);
+                    this.model.data = this.model.data.concat(newData);
                 };
                 MenuAddComponent = __decorate([
                     core_1.Component({

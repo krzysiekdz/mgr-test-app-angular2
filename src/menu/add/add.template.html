@@ -3,8 +3,12 @@
     <button class="btn btn-default btn-menu" name="addFirst" (click)="addFirst(addCount)">
     	add I
     </button>
-    <button class="btn btn-default btn-menu" name="addMid">              add II</button>
-    <button class="btn btn-default btn-menu" name="addLast">             add III</button>
+    <button class="btn btn-default btn-menu" name="addMid" (click)="addMid(addCount)">
+		add II
+	</button>
+    <button class="btn btn-default btn-menu" name="addLast" (click)="addLast(addCount)">
+    	add III
+    </button>
     <div> 
         add:
         <input type="text" class="form-control input100" name="input-add" [(ngModel)]="addCount" >
