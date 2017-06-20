@@ -1,6 +1,6 @@
 export class RandomService {
 
-	private id = 1;
+	private id = Id;
 
 	private rand(mod) { //max modulo === 1000
 	    return Math.floor(Math.random() * 1000 ) % mod;
@@ -16,7 +16,7 @@ export class RandomService {
 	    var data = [];
 	    for (var i = 0; i < count; i++) {
 	        data.push({ 
-	        	id: this.id++, 
+	        	id: this.id.id++, 
 	        	c1: col1[this.rand(col1.length)],
 	        	c2: col2[this.rand(col2.length)],
 	        	c3: col3[this.rand(col3.length)],
@@ -27,14 +27,18 @@ export class RandomService {
 	}
 
 	resetId() {
-		this.id = 1;
+		this.id.id = 1;
 	}
 
 	setId(i) {
-	    this.id = i;
+	    this.id.id = i;
 	}
 
 }
+
+var Id = {
+	id: 1
+};
 
 
 

@@ -1,17 +1,24 @@
 import {Component} from "angular2/core";
+import {ModelService} from '../../services/model.service';
+import {RandomService} from '../../services/random.service';
+import {ParseValueService} from '../../services/parseValue.service';
+import {AddService} from '../../services/add.service';
 
 @Component({
    selector: 'menu-init',
-   template: `
-    <div class="input-group">
-        <input type="text" class="form-control" placeholder="init..." name="input-init">
-        <span class="input-group-btn">
-            <button class="btn btn-default" name="btn-init">init</button>
-        </span>
-    </div>
-   	`,
+   templateUrl: '../src/menu/init/init.template.html',
+   providers: [AddService, RandomService, ModelService, ParseValueService],
 })
 
 export class InitComponent {
+
+  initCount:string = '';
+
+  constructor(private addService: AddService){
+  }
+
+  initWithData(count:string) {
+  	this.addService.addFirst(count);
+  }
 
 }

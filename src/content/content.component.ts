@@ -13,6 +13,6 @@ export class ContentComponent {
 	model;
 
 	constructor(private r: RandomService,  ms: ModelService) {
-		this.model = ms.getModel();
+		this.model = ms.getModel().model;
 	}
 }

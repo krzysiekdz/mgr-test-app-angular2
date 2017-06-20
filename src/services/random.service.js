@@ -1,13 +1,13 @@
 System.register([], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var RandomService;
+    var RandomService, Id;
     return {
         setters:[],
         execute: function() {
             RandomService = (function () {
                 function RandomService() {
-                    this.id = 1;
+                    this.id = Id;
                 }
                 RandomService.prototype.rand = function (mod) {
                     return Math.floor(Math.random() * 1000) % mod;
@@ -21,7 +21,7 @@ System.register([], function(exports_1, context_1) {
                     var data = [];
                     for (var i = 0; i < count; i++) {
                         data.push({
-                            id: this.id++,
+                            id: this.id.id++,
                             c1: col1[this.rand(col1.length)],
                             c2: col2[this.rand(col2.length)],
                             c3: col3[this.rand(col3.length)],
@@ -31,14 +31,17 @@ System.register([], function(exports_1, context_1) {
                     return data;
                 };
                 RandomService.prototype.resetId = function () {
-                    this.id = 1;
+                    this.id.id = 1;
                 };
                 RandomService.prototype.setId = function (i) {
-                    this.id = i;
+                    this.id.id = i;
                 };
                 return RandomService;
             }());
             exports_1("RandomService", RandomService);
+            Id = {
+                id: 1
+            };
         }
     }
 });

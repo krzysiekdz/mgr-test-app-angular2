@@ -1,4 +1,4 @@
-System.register(["angular2/core"], function(exports_1, context_1) {
+System.register(["angular2/core", '../../services/model.service', '../../services/random.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,23 +10,38 @@ System.register(["angular2/core"], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, model_service_1, random_service_1;
     var HeaderComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (model_service_1_1) {
+                model_service_1 = model_service_1_1;
+            },
+            function (random_service_1_1) {
+                random_service_1 = random_service_1_1;
             }],
         execute: function() {
             HeaderComponent = (function () {
-                function HeaderComponent() {
+                function HeaderComponent(ms, r) {
+                    this.ms = ms;
+                    this.r = r;
+                    this.title = "AngularJS 2";
+                    this.model = ms.getModel().model;
                 }
+                HeaderComponent.prototype.clear = function () {
+                    this.model.data = [];
+                    this.r.resetId();
+                };
                 HeaderComponent = __decorate([
                     core_1.Component({
                         selector: 'menu-header',
-                        template: "\n   \t<div class=\"div-header\">\n        <span class=\"label label-info header\" name=\"refresh\">AngularJS2</span>    \n        <button class=\"btn btn-default btn-clear\" name=\"clear\">clear</button> \n    </div>\n   \t",
+                        template: "\n   \t<div class=\"div-header\">\n        <span class=\"label label-info header\">\n        \t{{ title }}\n        </span>    \n        <button class=\"btn btn-default btn-clear\" name=\"clear\" (click)=\"clear()\">\n        \tclear\n        </button> \n    </div>\n   \t",
+                        providers: [model_service_1.ModelService, random_service_1.RandomService],
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [model_service_1.ModelService, random_service_1.RandomService])
                 ], HeaderComponent);
                 return HeaderComponent;
             }());

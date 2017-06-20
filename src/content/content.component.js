@@ -27,7 +27,7 @@ System.register(["angular2/core", '../services/random.service', '../services/mod
             ContentComponent = (function () {
                 function ContentComponent(r, ms) {
                     this.r = r;
-                    this.model = ms.getModel();
+                    this.model = ms.getModel().model;
                 }
                 ContentComponent = __decorate([
                     core_1.Component({

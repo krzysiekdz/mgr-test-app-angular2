@@ -1,4 +1,4 @@
-System.register(["angular2/core"], function(exports_1, context_1) {
+System.register(["angular2/core", '../../services/model.service', '../../services/random.service', '../../services/parseValue.service', '../../services/add.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,23 +10,41 @@ System.register(["angular2/core"], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, model_service_1, random_service_1, parseValue_service_1, add_service_1;
     var InitComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (model_service_1_1) {
+                model_service_1 = model_service_1_1;
+            },
+            function (random_service_1_1) {
+                random_service_1 = random_service_1_1;
+            },
+            function (parseValue_service_1_1) {
+                parseValue_service_1 = parseValue_service_1_1;
+            },
+            function (add_service_1_1) {
+                add_service_1 = add_service_1_1;
             }],
         execute: function() {
             InitComponent = (function () {
-                function InitComponent() {
+                function InitComponent(addService) {
+                    this.addService = addService;
+                    this.initCount = '';
                 }
+                InitComponent.prototype.initWithData = function (count) {
+                    this.addService.addFirst(count);
+                };
                 InitComponent = __decorate([
                     core_1.Component({
                         selector: 'menu-init',
-                        template: "\n    <div class=\"input-group\">\n        <input type=\"text\" class=\"form-control\" placeholder=\"init...\" name=\"input-init\">\n        <span class=\"input-group-btn\">\n            <button class=\"btn btn-default\" name=\"btn-init\">init</button>\n        </span>\n    </div>\n   \t",
+                        templateUrl: '../src/menu/init/init.template.html',
+                        providers: [add_service_1.AddService, random_service_1.RandomService, model_service_1.ModelService, parseValue_service_1.ParseValueService],
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [add_service_1.AddService])
                 ], InitComponent);
                 return InitComponent;
             }());

@@ -1,0 +1,10 @@
+<div class="input-group">
+    <input type="text" class="form-control" placeholder="init..." name="input-init"
+    	[(ngModel)]="initCount" >
+    <span class="input-group-btn">
+        <button class="btn btn-default" name="btn-init" 
+        	(click)="initWithData(initCount)">
+        	init
+        </button>
+    </span>
+</div>

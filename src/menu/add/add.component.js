@@ -1,4 +1,4 @@
-System.register(["angular2/core", '../../services/model.service', '../../services/random.service', '../../services/parseValue.service'], function(exports_1, context_1) {
+System.register(["angular2/core", '../../services/model.service', '../../services/random.service', '../../services/parseValue.service', '../../services/add.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(["angular2/core", '../../services/model.service', '../../service
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, model_service_1, random_service_1, parseValue_service_1;
+    var core_1, model_service_1, random_service_1, parseValue_service_1, add_service_1;
     var MenuAddComponent;
     return {
         setters:[
@@ -25,42 +25,32 @@ System.register(["angular2/core", '../../services/model.service', '../../service
             },
             function (parseValue_service_1_1) {
                 parseValue_service_1 = parseValue_service_1_1;
+            },
+            function (add_service_1_1) {
+                add_service_1 = add_service_1_1;
             }],
         execute: function() {
             MenuAddComponent = (function () {
-                function MenuAddComponent(r, ms, parse) {
-                    this.r = r;
-                    this.parse = parse;
+                function MenuAddComponent(addService) {
+                    this.addService = addService;
                     this.addCount = '';
-                    this.min = 1;
-                    this.max = 5000;
-                    this.model = ms.getModel();
                 }
                 MenuAddComponent.prototype.addFirst = function (count) {
-                    var c = this.parse.parseValue(count, this.min, this.max);
-                    var newData = this.r.randomObjects(c);
-                    this.model.data = newData.concat(this.model.data);
+                    this.addService.addFirst(count);
                 };
                 MenuAddComponent.prototype.addMid = function (count) {
-                    var c = this.parse.parseValue(count, this.min, this.max);
-                    var newData = this.r.randomObjects(c);
-                    var mid = Math.floor(this.model.data.length / 2);
-                    var args = [mid, 0]; //position mid, 0 removes - for splice function 
-                    args = args.concat(newData); //mid, 0 + newData -> args for splice
-                    Array.prototype.splice.apply(this.model.data, args);
+                    this.addService.addMid(count);
                 };
                 MenuAddComponent.prototype.addLast = function (count) {
-                    var c = this.parse.parseValue(count, this.min, this.max);
-                    var newData = this.r.randomObjects(c);
-                    this.model.data = this.model.data.concat(newData);
+                    this.addService.addLast(count);
                 };
                 MenuAddComponent = __decorate([
                     core_1.Component({
                         selector: 'menu-add',
                         templateUrl: '../src/menu/add/add.template.html',
-                        providers: [model_service_1.ModelService, random_service_1.RandomService, parseValue_service_1.ParseValueService],
+                        providers: [add_service_1.AddService, random_service_1.RandomService, model_service_1.ModelService, parseValue_service_1.ParseValueService],
                     }), 
-                    __metadata('design:paramtypes', [random_service_1.RandomService, model_service_1.ModelService, parseValue_service_1.ParseValueService])
+                    __metadata('design:paramtypes', [add_service_1.AddService])
                 ], MenuAddComponent);
                 return MenuAddComponent;
             }());
