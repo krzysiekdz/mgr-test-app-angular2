@@ -1,0 +1,17 @@
+<div class="container-action">
+    <button class="btn btn-default btn-menu" name="replaceFirst" (click)="replaceFirst(replaceCount)">        
+    	replace I
+    </button>
+    <button class="btn btn-default btn-menu" name="replaceMid"  (click)="replaceMid(replaceCount)">         
+    	replace II
+    </button>
+    <button class="btn btn-default btn-menu" name="replaceLast" (click)="replaceLast(replaceCount)">         
+    	replace III
+    </button>
+    <div> 
+        replace:
+        <input type="text" class="form-control input100" name="input-replace"
+        	[(ngModel)]="replaceCount">
+        elements
+    </div>
+</div>

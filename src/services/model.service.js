@@ -14,7 +14,7 @@ System.register(['./dataModelObj'], function(exports_1, context_1) {
                     this.model = dataModelObj_1.MODEL;
                 }
                 ModelService.prototype.getModel = function () {
-                    return this.model;
+                    return this.model.model;
                 };
                 return ModelService;
             }());

@@ -23,7 +23,7 @@ export class HeaderComponent {
   model;
 
   constructor(private ms: ModelService, private r: RandomService){
-    this.model = ms.getModel().model;
+    this.model = ms.getModel();
   }
 
 	clear() {

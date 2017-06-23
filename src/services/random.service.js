@@ -1,7 +1,7 @@
 System.register([], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var RandomService, Id;
+    var RandomService, Id, col1, col2, col3, col4;
     return {
         setters:[],
         execute: function() {
@@ -13,11 +13,6 @@ System.register([], function(exports_1, context_1) {
                     return Math.floor(Math.random() * 1000) % mod;
                 };
                 RandomService.prototype.randomObjects = function (count) {
-                    var col1 = ['John', 'Paulo', 'Anthony', 'Roger', 'Graham', 'Robin', 'Terry', 'Erick', 'Michael', 'Carol', 'Simon', 'Sir'];
-                    var col2 = ['Champman', 'Cleese', 'Gillman', 'Idle', 'Jones', 'Palin', 'Cohen', 'Centurion', 'Dirk', 'Lorett', 'Lancelot', 'Robin', 'Galahad'];
-                    // var col3 = ['Przywódca', 'Mędrzec', 'Strażnik', 'Rewolucjonista', 'Prorok', 'Asystent', 'Wokalista', 'Urzędnik', 'Handlarz', 'Rycerz', 'Czarnoksiężnik'];
-                    var col3 = ['Leader', 'Wise man', 'Warden', 'Revolutionary', 'Prophet', 'Assistant', 'Singer', 'Officer', 'Tradesman', 'Knight', 'Wizard'];
-                    var col4 = [100, 200, 500, 1000, 1500, 2000, 3000, 5000, 8000, 10000];
                     var data = [];
                     for (var i = 0; i < count; i++) {
                         data.push({
@@ -42,6 +37,11 @@ System.register([], function(exports_1, context_1) {
             Id = {
                 id: 1
             };
+            col1 = ['John', 'Paulo', 'Anthony', 'Roger', 'Graham', 'Robin', 'Terry', 'Erick', 'Michael', 'Carol', 'Simon', 'Sir'];
+            col2 = ['Champman', 'Cleese', 'Gillman', 'Idle', 'Jones', 'Palin', 'Cohen', 'Centurion', 'Dirk', 'Lorett', 'Lancelot', 'Robin', 'Galahad'];
+            // var col3 = ['Przywódca', 'Mędrzec', 'Strażnik', 'Rewolucjonista', 'Prorok', 'Asystent', 'Wokalista', 'Urzędnik', 'Handlarz', 'Rycerz', 'Czarnoksiężnik'];
+            col3 = ['Leader', 'Wise man', 'Warden', 'Revolutionary', 'Prophet', 'Assistant', 'Singer', 'Officer', 'Tradesman', 'Knight', 'Wizard'];
+            col4 = [100, 200, 500, 1000, 1500, 2000, 3000, 5000, 8000, 10000];
         }
     }
 });

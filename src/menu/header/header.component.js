@@ -29,7 +29,7 @@ System.register(["angular2/core", '../../services/model.service', '../../service
                     this.ms = ms;
                     this.r = r;
                     this.title = "AngularJS 2";
-                    this.model = ms.getModel().model;
+                    this.model = ms.getModel();
                 }
                 HeaderComponent.prototype.clear = function () {
                     this.model.data = [];

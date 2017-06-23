@@ -1,4 +1,4 @@
-System.register(['angular2/core', './model.service', './random.service', './parseValue.service'], function(exports_1, context_1) {
+System.register(['angular2/core', '../model.service', '../random.service', '../parseValue.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -14,7 +14,7 @@ System.register(['angular2/core', './model.service', './random.service', './pars
         return function (target, key) { decorator(target, key, paramIndex); }
     };
     var core_1, model_service_1, random_service_1, parseValue_service_1;
-    var AddService;
+    var ReplaceService;
     return {
         setters:[
             function (core_1_1) {
@@ -30,8 +30,8 @@ System.register(['angular2/core', './model.service', './random.service', './pars
                 parseValue_service_1 = parseValue_service_1_1;
             }],
         execute: function() {
-            AddService = (function () {
-                function AddService(r, ms, parse) {
+            ReplaceService = (function () {
+                function ReplaceService(r, ms, parse) {
                     this.r = r;
                     this.ms = ms;
                     this.parse = parse;
@@ -39,34 +39,50 @@ System.register(['angular2/core', './model.service', './random.service', './pars
                     this.max = 5000;
                     this.model = ms.getModel();
                 }
-                AddService.prototype.addFirst = function (count) {
+                ReplaceService.prototype.replaceFirst = function (count) {
                     var c = this.parse.parseValue(count, this.min, this.max);
-                    var newData = this.r.randomObjects(c);
-                    this.model.data = newData.concat(this.model.data);
+                    var data = this.model.data;
+                    if (data.length >= c) {
+                        var newData = this.r.randomObjects(c);
+                        for (var i = 0; i < c; i++) {
+                            data[i] = newData[i];
+                        }
+                    }
                 };
-                AddService.prototype.addMid = function (count) {
+                ReplaceService.prototype.replaceMid = function (count) {
                     var c = this.parse.parseValue(count, this.min, this.max);
-                    var newData = this.r.randomObjects(c);
-                    var mid = Math.floor(this.model.data.length / 2);
-                    var args = [mid, 0]; //position mid, 0 removes - for splice function 
-                    args = args.concat(newData); //mid, 0 + newData -> args for splice
-                    Array.prototype.splice.apply(this.model.data, args);
+                    var data = this.model.data;
+                    if (data.length >= c) {
+                        var newData = this.r.randomObjects(c);
+                        var start = Math.floor(data.length / 2) - Math.floor(c / 2);
+                        var end = start + c;
+                        for (var i = start, j = 0; i < end; i++, j++) {
+                            data[i] = newData[j];
+                        }
+                    }
                 };
-                AddService.prototype.addLast = function (count) {
+                ReplaceService.prototype.replaceLast = function (count) {
                     var c = this.parse.parseValue(count, this.min, this.max);
-                    var newData = this.r.randomObjects(c);
-                    this.model.data = this.model.data.concat(newData);
+                    var data = this.model.data;
+                    if (data.length >= c) {
+                        var newData = this.r.randomObjects(c);
+                        var start = data.length - c;
+                        var end = start + c;
+                        for (var i = start, j = 0; i < end; i++, j++) {
+                            data[i] = newData[j];
+                        }
+                    }
                 };
-                AddService = __decorate([
+                ReplaceService = __decorate([
                     __param(0, core_1.Inject(random_service_1.RandomService)),
                     __param(1, core_1.Inject(model_service_1.ModelService)),
                     __param(2, core_1.Inject(parseValue_service_1.ParseValueService)), 
                     __metadata('design:paramtypes', [Object, Object, Object])
-                ], AddService);
-                return AddService;
+                ], ReplaceService);
+                return ReplaceService;
             }());
-            exports_1("AddService", AddService);
+            exports_1("ReplaceService", ReplaceService);
         }
     }
 });
-//# sourceMappingURL=add.service.js.map
+//# sourceMappingURL=replace.service.js.map

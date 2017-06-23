@@ -4,8 +4,8 @@ import {MODEL} from './dataModelObj';
 export class ModelService {
 	model:DataModel = MODEL;
 
-	getModel():DataModel {
-		return this.model;
+	getModel() {
+		return this.model.model;
 	}
 }
 

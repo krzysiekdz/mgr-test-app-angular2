@@ -12,7 +12,7 @@ export class AddService {
 	constructor(@Inject(RandomService) private r, 
 		@Inject(ModelService) private ms,
 		@Inject(ParseValueService) private parse) {
-		this.model = ms.getModel().model;
+		this.model = ms.getModel();
 	}
 
 	addFirst(count:string) {
