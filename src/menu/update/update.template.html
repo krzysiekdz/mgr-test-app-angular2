@@ -1,22 +1,27 @@
 <div class="container-action">
-    <button class="btn btn-default btn-menu" name="updateFirst">           
+    <button class="btn btn-default btn-menu" name="updateFirst" (click)="updateFirst(updateCount)">           
     	update I
     </button>
-    <button class="btn btn-default btn-menu" name="updateMid">           
+    <button class="btn btn-default btn-menu" name="updateMid" (click)="updateMid(updateCount)">           
     	update II
     </button>
-    <button class="btn btn-default btn-menu" name="updateLast">           
+    <button class="btn btn-default btn-menu" name="updateLast" (click)="updateLast(updateCount)">           
     	update III
     </button>
     <div class="menu-block">
         update: 
-        <input type="text" class="form-control input150" value="" name="input-update"> 
+        <input type="text" class="form-control input150" value="" name="input-update" 
+        	[(ngModel)]="updateCount"> 
         elements
     </div>
+
     <div>
-        <button class="btn btn-default btn-menu" name="updateEvery">            update</button>
+        <button class="btn btn-default btn-menu" name="updateEvery" (click)="partialUpdate(updateEveryCount)">            
+        	update
+        </button>
         every
-        <input type="text" class="form-control input50" value="" name="input-update-every">
+        <input type="text" class="form-control input50" value="" name="input-update-every"
+        	[(ngModel)]="updateEveryCount">
         th element
     </div>
 </div>

@@ -1,4 +1,4 @@
-System.register(["angular2/core", '../../services/model.service', '../../services/random.service', '../../services/parseValue.service', '../../services/core-operations/replace.service'], function(exports_1, context_1) {
+System.register(["angular2/core", '../../services/model.service', '../../services/random.service', '../../services/parseValue.service', '../../services/core-operations/update.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,8 +10,8 @@ System.register(["angular2/core", '../../services/model.service', '../../service
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, model_service_1, random_service_1, parseValue_service_1, replace_service_1;
-    var MenuReplaceComponent;
+    var core_1, model_service_1, random_service_1, parseValue_service_1, update_service_1;
+    var MenuUpdateComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -26,35 +26,38 @@ System.register(["angular2/core", '../../services/model.service', '../../service
             function (parseValue_service_1_1) {
                 parseValue_service_1 = parseValue_service_1_1;
             },
-            function (replace_service_1_1) {
-                replace_service_1 = replace_service_1_1;
+            function (update_service_1_1) {
+                update_service_1 = update_service_1_1;
             }],
         execute: function() {
-            MenuReplaceComponent = (function () {
-                function MenuReplaceComponent(replService) {
-                    this.replService = replService;
-                    this.replaceCount = '';
+            MenuUpdateComponent = (function () {
+                function MenuUpdateComponent(updateService) {
+                    this.updateService = updateService;
+                    this.updateCount = '';
                 }
-                MenuReplaceComponent.prototype.replaceFirst = function (count) {
-                    this.replService.replaceFirst(count);
+                MenuUpdateComponent.prototype.updateFirst = function (count) {
+                    this.updateService.updateFirst(count);
                 };
-                MenuReplaceComponent.prototype.replaceMid = function (count) {
-                    this.replService.replaceMid(count);
+                MenuUpdateComponent.prototype.updateMid = function (count) {
+                    this.updateService.updateMid(count);
                 };
-                MenuReplaceComponent.prototype.replaceLast = function (count) {
-                    this.replService.replaceLast(count);
+                MenuUpdateComponent.prototype.updateLast = function (count) {
+                    this.updateService.updateLast(count);
                 };
-                MenuReplaceComponent = __decorate([
+                MenuUpdateComponent.prototype.partialUpdate = function (every) {
+                    this.updateService.partialUpdate(every);
+                };
+                MenuUpdateComponent = __decorate([
                     core_1.Component({
-                        selector: 'menu-replace',
-                        templateUrl: '../src/menu/replace/replace.template.html',
-                        providers: [replace_service_1.ReplaceService, random_service_1.RandomService, model_service_1.ModelService, parseValue_service_1.ParseValueService],
+                        selector: 'menu-update',
+                        templateUrl: '../src/menu/update/update.template.html',
+                        providers: [update_service_1.UpdateService, random_service_1.RandomService, model_service_1.ModelService, parseValue_service_1.ParseValueService],
                     }), 
-                    __metadata('design:paramtypes', [replace_service_1.ReplaceService])
-                ], MenuReplaceComponent);
-                return MenuReplaceComponent;
+                    __metadata('design:paramtypes', [update_service_1.UpdateService])
+                ], MenuUpdateComponent);
+                return MenuUpdateComponent;
             }());
-            exports_1("MenuReplaceComponent", MenuReplaceComponent);
+            exports_1("MenuUpdateComponent", MenuUpdateComponent);
         }
     }
 });

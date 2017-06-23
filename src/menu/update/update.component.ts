@@ -2,31 +2,35 @@ import {Component} from "angular2/core";
 import {ModelService} from '../../services/model.service';
 import {RandomService} from '../../services/random.service';
 import {ParseValueService} from '../../services/parseValue.service';
-import {ReplaceService} from '../../services/core-operations/replace.service';
+import {UpdateService} from '../../services/core-operations/update.service';
 
 @Component({
-   selector: 'menu-replace',
-   templateUrl: '../src/menu/replace/replace.template.html',
-   providers: [ReplaceService, RandomService, ModelService, ParseValueService],
+   selector: 'menu-update',
+   templateUrl: '../src/menu/update/update.template.html',
+   providers: [UpdateService, RandomService, ModelService, ParseValueService],
 })
 
-export class MenuReplaceComponent {
+export class MenuUpdateComponent {
 
-	replaceCount:string = '';
+	updateCount:string = '';
 
-	constructor(private replService: ReplaceService){
+	constructor(private updateService: UpdateService){
 	}
 
-	replaceFirst(count:string) {
-		this.replService.replaceFirst(count);
+	updateFirst(count:string) {
+		this.updateService.updateFirst(count);
 	}
 
-	replaceMid(count:string) {
-		this.replService.replaceMid(count);
+	updateMid(count:string) {
+		this.updateService.updateMid(count);
 	}
 
-	replaceLast(count:string) {
-		this.replService.replaceLast(count);
+	updateLast(count:string) {
+		this.updateService.updateLast(count);
+	}
+
+	partialUpdate(every:string) {
+		this.updateService.partialUpdate(every);
 	}
 
 

@@ -1,4 +1,4 @@
-System.register(["angular2/core", "./header/header.component", "./init/init.component", './add/add.component', './replace/replace.component'], function(exports_1, context_1) {
+System.register(["angular2/core", "./header/header.component", "./init/init.component", './add/add.component', './replace/replace.component', './update/update.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(["angular2/core", "./header/header.component", "./init/init.comp
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, header_component_1, init_component_1, add_component_1, replace_component_1;
+    var core_1, header_component_1, init_component_1, add_component_1, replace_component_1, update_component_1;
     var MenuComponent;
     return {
         setters:[
@@ -28,6 +28,9 @@ System.register(["angular2/core", "./header/header.component", "./init/init.comp
             },
             function (replace_component_1_1) {
                 replace_component_1 = replace_component_1_1;
+            },
+            function (update_component_1_1) {
+                update_component_1 = update_component_1_1;
             }],
         execute: function() {
             MenuComponent = (function () {
@@ -36,8 +39,9 @@ System.register(["angular2/core", "./header/header.component", "./init/init.comp
                 MenuComponent = __decorate([
                     core_1.Component({
                         selector: 'app-menu',
-                        template: "\n   \t<div class=\"menu\">\n   \t\t<div>\n\t\t\t<menu-header></menu-header>\n\t\t\t<menu-init></menu-init>\n\t\t\t<menu-add></menu-add>\n         <menu-replace></menu-replace>\n   \t\t</div>\n   \t</div>\n   \t",
-                        directives: [header_component_1.HeaderComponent, init_component_1.InitComponent, add_component_1.MenuAddComponent, replace_component_1.MenuReplaceComponent],
+                        template: "\n   \t<div class=\"menu\">\n   \t\t<div>\n\t\t\t<menu-header></menu-header>\n\t\t\t<menu-init></menu-init>\n\t\t\t<menu-add></menu-add>\n         <menu-replace></menu-replace>\n         <menu-update></menu-update>\n   \t\t</div>\n   \t</div>\n   \t",
+                        directives: [header_component_1.HeaderComponent, init_component_1.InitComponent, add_component_1.MenuAddComponent,
+                            replace_component_1.MenuReplaceComponent, update_component_1.MenuUpdateComponent],
                     }), 
                     __metadata('design:paramtypes', [])
                 ], MenuComponent);
