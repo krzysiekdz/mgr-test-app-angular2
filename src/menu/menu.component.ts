@@ -4,6 +4,7 @@ import {InitComponent} from "./init/init.component";
 import {MenuAddComponent} from './add/add.component';
 import {MenuReplaceComponent} from './replace/replace.component';
 import {MenuUpdateComponent} from './update/update.component';
+import {MenuSwapComponent} from './swap/swap.component';
 
 @Component({
    selector: 'app-menu',
@@ -15,11 +16,12 @@ import {MenuUpdateComponent} from './update/update.component';
 			<menu-add></menu-add>
          <menu-replace></menu-replace>
          <menu-update></menu-update>
+         <menu-swap></menu-swap>
    		</div>
    	</div>
    	`,
    	directives: [HeaderComponent, InitComponent, MenuAddComponent, 
-         MenuReplaceComponent, MenuUpdateComponent],
+         MenuReplaceComponent, MenuUpdateComponent, MenuSwapComponent],
 })
 
 export class MenuComponent {
