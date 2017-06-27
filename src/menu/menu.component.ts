@@ -6,6 +6,7 @@ import {MenuReplaceComponent} from './replace/replace.component';
 import {MenuUpdateComponent} from './update/update.component';
 import {MenuSwapComponent} from './swap/swap.component';
 import {MenuFetchComponent} from './fetch/fetch.component';
+import {MenuInputComponent} from './input/input.component';
 
 @Component({
    selector: 'app-menu',
@@ -19,12 +20,13 @@ import {MenuFetchComponent} from './fetch/fetch.component';
             <menu-update></menu-update>
             <menu-swap></menu-swap>
             <menu-fetch></menu-fetch>
+            <menu-input></menu-input>
    		</div>
    	</div>
    	`,
    	directives: [HeaderComponent, InitComponent, MenuAddComponent, 
          MenuReplaceComponent, MenuUpdateComponent, MenuSwapComponent,
-         MenuFetchComponent],
+         MenuFetchComponent, MenuInputComponent],
 })
 
 export class MenuComponent {
