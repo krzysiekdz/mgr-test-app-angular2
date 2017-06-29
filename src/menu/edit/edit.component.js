@@ -29,6 +29,12 @@ System.register(["angular2/core", '../../services/model.service', '../../directi
                     this.model = ms.getModel();
                     // this.model.data[0] = {c1: 'ala'};
                 }
+                MenuEditComponent.prototype.edit = function (name) {
+                    var data = this.model.data;
+                    if (data.length > 0) {
+                        data[0].c1 = name;
+                    }
+                };
                 MenuEditComponent = __decorate([
                     core_1.Component({
                         selector: 'menu-edit',

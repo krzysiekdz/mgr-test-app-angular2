@@ -1,8 +1,8 @@
 <div class="input-group">
     <input type="text" class="form-control" placeholder="edit..." name="input-edit"
-    	editFirstDataElement >
+    	editFirstDataElement [(ngModel)]="editValue" >
     <span class="input-group-btn">
-        <button class="btn btn-default" name="btn-edit">
+        <button class="btn btn-default" name="btn-edit" (click)="edit(editValue)">
         	edit
         </button>
     </span>

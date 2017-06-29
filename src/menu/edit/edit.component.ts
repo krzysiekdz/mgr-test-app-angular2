@@ -17,4 +17,11 @@ export class MenuEditComponent {
 		this.model = ms.getModel();
 		// this.model.data[0] = {c1: 'ala'};
 	}
+
+	edit(name:string) {
+		var data = this.model.data;
+		if(data.length > 0) {
+			data[0].c1 = name;
+		}
+	}
 }
