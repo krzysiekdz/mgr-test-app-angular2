@@ -1,0 +1,10 @@
+ <div class="input-group">
+    <input type="text" class="form-control" placeholder="search for..." name="input-search"
+    	[(ngModel)]="searchText" (input)="search($event)" >
+    <span class="input-group-btn">
+        <button class="btn btn-default" name="btn-search" 
+        	(click)="search(null, searchText)" >
+        	search
+        </button>
+    </span>
+</div>

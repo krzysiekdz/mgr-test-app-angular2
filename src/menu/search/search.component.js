@@ -1,4 +1,4 @@
-System.register(["angular2/core", '../services/random.service', '../services/model.service', '../services/core-operations/search.service'], function(exports_1, context_1) {
+System.register(["angular2/core", '../../services/model.service', '../../services/core-operations/search.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,15 +10,12 @@ System.register(["angular2/core", '../services/random.service', '../services/mod
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, random_service_1, model_service_1, search_service_1;
-    var ContentComponent;
+    var core_1, model_service_1, search_service_1;
+    var MenuSearchComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (random_service_1_1) {
-                random_service_1 = random_service_1_1;
             },
             function (model_service_1_1) {
                 model_service_1 = model_service_1_1;
@@ -27,27 +24,31 @@ System.register(["angular2/core", '../services/random.service', '../services/mod
                 search_service_1 = search_service_1_1;
             }],
         execute: function() {
-            ContentComponent = (function () {
-                function ContentComponent(r, ms, searchService) {
-                    this.r = r;
+            MenuSearchComponent = (function () {
+                function MenuSearchComponent(ms, searchService) {
                     this.searchService = searchService;
                     this.model = ms.getModel();
                 }
-                ContentComponent.prototype.isSearchPass = function (item, i) {
-                    return this.searchService.isSearchPass(item, i);
+                MenuSearchComponent.prototype.search = function (event, text) {
+                    if (event !== null && event) {
+                        this.searchService.search(event.target.value);
+                    }
+                    else if (text) {
+                        this.searchService.search(text);
+                    }
                 };
-                ContentComponent = __decorate([
+                MenuSearchComponent = __decorate([
                     core_1.Component({
-                        selector: 'app-content',
-                        templateUrl: '../src/content/content.template.html',
-                        providers: [random_service_1.RandomService, model_service_1.ModelService, search_service_1.SearchService]
+                        selector: 'menu-search',
+                        templateUrl: '../src/menu/search/search.template.html',
+                        providers: [model_service_1.ModelService, search_service_1.SearchService],
                     }), 
-                    __metadata('design:paramtypes', [random_service_1.RandomService, model_service_1.ModelService, search_service_1.SearchService])
-                ], ContentComponent);
-                return ContentComponent;
+                    __metadata('design:paramtypes', [model_service_1.ModelService, search_service_1.SearchService])
+                ], MenuSearchComponent);
+                return MenuSearchComponent;
             }());
-            exports_1("ContentComponent", ContentComponent);
+            exports_1("MenuSearchComponent", MenuSearchComponent);
         }
     }
 });
-//# sourceMappingURL=content.component.js.map
+//# sourceMappingURL=search.component.js.map

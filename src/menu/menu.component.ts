@@ -9,6 +9,7 @@ import {MenuFetchComponent} from './fetch/fetch.component';
 import {MenuInputComponent} from './input/input.component';
 import {MenuEditComponent} from './edit/edit.component';
 import {MenuFilterComponent} from './filter/filter.component';
+import {MenuSearchComponent} from './search/search.component';
 
 @Component({
    selector: 'app-menu',
@@ -25,13 +26,14 @@ import {MenuFilterComponent} from './filter/filter.component';
             <menu-input></menu-input>
             <menu-edit></menu-edit>
             <menu-filter></menu-filter>
+            <menu-search></menu-search>
    		</div>
    	</div>
    	`,
    	directives: [HeaderComponent, InitComponent, MenuAddComponent, 
          MenuReplaceComponent, MenuUpdateComponent, MenuSwapComponent,
          MenuFetchComponent, MenuInputComponent, MenuEditComponent,
-         MenuFilterComponent],
+         MenuFilterComponent, MenuSearchComponent],
 })
 
 export class MenuComponent {
