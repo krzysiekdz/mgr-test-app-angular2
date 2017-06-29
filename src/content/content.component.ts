@@ -35,4 +35,12 @@ export class ContentComponent {
 	isSelected(item) {
 		return this.selectedItem === item;
 	}
+
+	removeItem(item) {
+		var data = this.model.data;
+		var index = data.findIndex(it => it.id === item.id);
+		if(index > -1) {
+			data.splice(index, 1);
+		}
+	}
 }

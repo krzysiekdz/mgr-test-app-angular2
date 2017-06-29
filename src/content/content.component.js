@@ -48,6 +48,13 @@ System.register(["angular2/core", '../services/random.service', '../services/mod
                 ContentComponent.prototype.isSelected = function (item) {
                     return this.selectedItem === item;
                 };
+                ContentComponent.prototype.removeItem = function (item) {
+                    var data = this.model.data;
+                    var index = data.findIndex(function (it) { return it.id === item.id; });
+                    if (index > -1) {
+                        data.splice(index, 1);
+                    }
+                };
                 ContentComponent = __decorate([
                     core_1.Component({
                         selector: 'app-content',
