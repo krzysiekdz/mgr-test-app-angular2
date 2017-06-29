@@ -8,6 +8,7 @@ import {MenuSwapComponent} from './swap/swap.component';
 import {MenuFetchComponent} from './fetch/fetch.component';
 import {MenuInputComponent} from './input/input.component';
 import {MenuEditComponent} from './edit/edit.component';
+import {MenuFilterComponent} from './filter/filter.component';
 
 @Component({
    selector: 'app-menu',
@@ -23,12 +24,14 @@ import {MenuEditComponent} from './edit/edit.component';
             <menu-fetch></menu-fetch>
             <menu-input></menu-input>
             <menu-edit></menu-edit>
+            <menu-filter></menu-filter>
    		</div>
    	</div>
    	`,
    	directives: [HeaderComponent, InitComponent, MenuAddComponent, 
          MenuReplaceComponent, MenuUpdateComponent, MenuSwapComponent,
-         MenuFetchComponent, MenuInputComponent, MenuEditComponent],
+         MenuFetchComponent, MenuInputComponent, MenuEditComponent,
+         MenuFilterComponent],
 })
 
 export class MenuComponent {
