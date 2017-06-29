@@ -31,10 +31,22 @@ System.register(["angular2/core", '../services/random.service', '../services/mod
                 function ContentComponent(r, ms, searchService) {
                     this.r = r;
                     this.searchService = searchService;
+                    this.selectedItem = null;
                     this.model = ms.getModel();
                 }
                 ContentComponent.prototype.isSearchPass = function (item, i) {
                     return this.searchService.isSearchPass(item, i);
+                };
+                ContentComponent.prototype.selectItem = function (item) {
+                    if (item === this.selectedItem) {
+                        this.selectedItem = null;
+                    }
+                    else {
+                        this.selectedItem = item;
+                    }
+                };
+                ContentComponent.prototype.isSelected = function (item) {
+                    return this.selectedItem === item;
                 };
                 ContentComponent = __decorate([
                     core_1.Component({

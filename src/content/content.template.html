@@ -12,7 +12,10 @@
 
         <tbody name="table" [ngClass]="{filtered: model.filtered}" >
             
-        	<tr *ngFor="#item of model.data" [hidden]="item.hidden"  >
+        	<tr *ngFor="#item of model.data" 
+                [hidden]="item.hidden" 
+                [class.selected]="isSelected(item)" 
+                (click)="selectItem(item)" >
             <!-- <tr *ngFor="#item of model.data" > -->
                 <!-- <template [ngIf]="!item.hidden" >     -->
                     <td class="col-md-1"  >

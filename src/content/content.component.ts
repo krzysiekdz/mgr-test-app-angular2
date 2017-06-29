@@ -12,6 +12,7 @@ import {SearchService} from '../services/core-operations/search.service';
 export class ContentComponent {
 	
 	model;
+	selectedItem = null;
 
 	constructor(private r: RandomService,
 	  ms: ModelService,
@@ -21,5 +22,17 @@ export class ContentComponent {
 
 	isSearchPass(item, i) {
 		return this.searchService.isSearchPass(item, i);
+	}
+
+	selectItem(item) {
+		if(item === this.selectedItem) {
+			this.selectedItem = null;
+		} else {
+			this.selectedItem = item;
+		}
+	}
+
+	isSelected(item) {
+		return this.selectedItem === item;
 	}
 }
